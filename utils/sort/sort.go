@@ -20,13 +20,3 @@ func BubbleSort(elements []int) {
 func Sort(elements []int) {
 	sort.Ints(elements)
 }
-
-func GetElements(n int) []int {
-	result := make([]int, n)
-	j := 0
-	for i := n - 1; i > 0; i-- {
-		result[j] = i
-		j++
-	}
-	return result
-}

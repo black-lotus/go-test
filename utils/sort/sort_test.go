@@ -6,8 +6,18 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func getElements(n int) []int {
+	result := make([]int, n)
+	j := 0
+	for i := n - 1; i > 0; i-- {
+		result[j] = i
+		j++
+	}
+	return result
+}
+
 func TestBubbleSortIncreasingOrder(t *testing.T) {
-	elements := GetElements(10)
+	elements := getElements(10)
 
 	assert.NotNil(t, elements)
 	assert.EqualValues(t, 10, len(elements))
@@ -23,7 +33,7 @@ func TestBubbleSortIncreasingOrder(t *testing.T) {
 }
 
 func TestSortIncreasingOrder(t *testing.T) {
-	elements := GetElements(10)
+	elements := getElements(10)
 
 	Sort(elements)
 
@@ -32,14 +42,14 @@ func TestSortIncreasingOrder(t *testing.T) {
 }
 
 func BenchmarkBubbleSort(b *testing.B) {
-	elements := GetElements(10000)
+	elements := getElements(10000)
 	for i := 0; i < b.N; i++ {
 		BubbleSort(elements)
 	}
 }
 
 func BenchmarkSort(b *testing.B) {
-	elements := GetElements(10000)
+	elements := getElements(10000)
 	for i := 0; i < b.N; i++ {
 		Sort(elements)
 	}
